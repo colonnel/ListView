@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         addContact();
 //        mAdapter = new ContactsAdapter(this, mContacts);
 //        mAdapter = new ArrayAdapter<Contact>(this, android.R.layout.simple_list_item_1, mContacts);
-        mAdapter = new ContactsArrayAdapter(this, R.layout.my_list_item, mContacts);
+        mAdapter = new ContactsArrayAdapter(this, mContacts);
         View header = getLayoutInflater().inflate(R.layout.header,null);
         vContList.addHeaderView(header);
         vContList.addFooterView(header);

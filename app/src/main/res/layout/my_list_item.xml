@@ -1,32 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    card_view:cardBackgroundColor="#FAFAFA"
+    card_view:cardCornerRadius="6dp"
+    card_view:cardElevation="5dp">
 
-    <ImageView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        android:id="@+id/image"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:scaleType="fitCenter" />
 
-    <TextView
-        android:id="@+id/name"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:gravity="center_vertical"
-        android:textSize="20sp"
-        android:textStyle="bold|italic"/>
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="fitCenter"
+            tools:src="@drawable/cont1" />
 
-    <TextView
-        android:id="@+id/phone"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:gravity="center_vertical"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Name"
+                android:gravity="center_vertical"
+                android:layout_margin="5dp"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="#000000"/>
+
+            <TextView
+                android:id="@+id/phone"
+                tools:text="Phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textSize="15sp"
+                android:textColor="#01579B"
+                 />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_add"
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="1"
+                    android:text="Add"
+                    android:layout_margin="5dp"
+                    android:background="#03A9F4"
+                    android:textColor="#FAFAFA"/>
+
+                <Button
+                    android:id="@+id/button_remove"
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="1"
+                    android:text="Remove"
+                    android:layout_margin="5dp"
+                    android:background="#03A9F4"
+                    android:textColor="#FAFAFA"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>

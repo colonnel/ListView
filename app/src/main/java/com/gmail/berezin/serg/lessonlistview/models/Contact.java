@@ -53,15 +53,19 @@ public class Contact {
     private int setPhoto() {
         switch (count) {
             case 1:
-                return R.drawable.cont1;
+                return R.drawable.cont_1;
             case 2:
-                return R.drawable.cont2;
+                return R.drawable.cont_2;
             case 3:
-                return R.drawable.cont3;
+                return R.drawable.cont_3;
             case 4:
-                return R.drawable.cont4;
+                return R.drawable.cont_4;
             case 5:
-                return R.drawable.cont5;
+                return R.drawable.cont_5;
+            case 6:
+                return R.drawable.cont_6;
+            case 7:
+                return R.drawable.cont_7;
         }
         return -1;
     }

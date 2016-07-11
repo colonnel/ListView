@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.gmail.berezin.serg.lessonlistview.R;
 import com.gmail.berezin.serg.lessonlistview.models.Contact;
 
@@ -18,12 +19,11 @@ import java.util.ArrayList;
 public class ContactsArrayAdapter extends ArrayAdapter {
     private Context context;
     private LayoutInflater inflater;
-    private int layoutResourceId;
     private ArrayList<Contact> list;
 
-    public ContactsArrayAdapter(Context context, int layoutResourceId, ArrayList<Contact> list) {
-        super(context, layoutResourceId, list);
-        this.layoutResourceId = layoutResourceId;
+    public ContactsArrayAdapter(Context context, ArrayList<Contact> list) {
+        super(context, R.layout.my_list_item, list);
+        inflater = LayoutInflater.from(context);
         this.context = context;
         this.list = list;
     }
@@ -45,13 +45,15 @@ public class ContactsArrayAdapter extends ArrayAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         Contact contact = (Contact) getItem(position);
-        inflater = ((Activity)context).getLayoutInflater();
         convertView = inflater.inflate(R.layout.my_list_item, parent, false);
         ImageView photo = (ImageView) convertView.findViewById(R.id.image);
         TextView name = (TextView) convertView.findViewById(R.id.name);
         TextView phone = (TextView) convertView.findViewById(R.id.phone);
-        photo.setImageResource(contact.getContactPhoto());
+        Glide.with(context)
+                .load(contact.getContactPhoto())
+                .into(photo);
         name.setText(contact.getName());
         phone.setText(contact.getPhoneNumber());
 
