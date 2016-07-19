@@ -25,7 +25,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:textSize="15sp"
+            android:textColor="#01579B"
             tools:text="Number" />
+
+        <TextView
+            android:id="@+id/phone2_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textColor="#01579B"
+            android:textSize="15sp"
+            tools:text="Phone2" />
 
         <TextView
             android:id="@+id/name_info"

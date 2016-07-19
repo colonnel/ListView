@@ -3,11 +3,13 @@ package com.gmail.berezin.serg.lessonlistview.models;
 
 import com.gmail.berezin.serg.lessonlistview.R;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Contact {
+public class Contact implements Serializable {
     private String name;
     private String phoneNumber;
+    private String phoneNumber2;
     private int contactPhoto;
     Random random = new Random();
     int count = random.nextInt(5) + 1;
@@ -16,6 +18,7 @@ public class Contact {
         this.name = setName();
         this.phoneNumber = setNumber();
         this.contactPhoto = setPhoto();
+        this.phoneNumber2 = null;
     }
 
     private String setName() {
@@ -70,12 +73,20 @@ public class Contact {
         return -1;
     }
 
+    public void setPhoneNumber2(String phoneNumber2) {
+        this.phoneNumber2 = phoneNumber2;
+    }
+
     public String getName() {
         return name;
     }
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public String getPhoneNumbere2() {
+        return phoneNumber2;
     }
 
     public int getContactPhoto() {
@@ -86,4 +97,33 @@ public class Contact {
     public String toString() {
         return name + ", " + phoneNumber;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Contact contact = (Contact) o;
+
+        if (contactPhoto != contact.contactPhoto) return false;
+        if (count != contact.count) return false;
+        if (name != null ? !name.equals(contact.name) : contact.name != null) return false;
+        if (phoneNumber != null ? !phoneNumber.equals(contact.phoneNumber) : contact.phoneNumber != null)
+            return false;
+        if (phoneNumber2 != null ? !phoneNumber2.equals(contact.phoneNumber2) : contact.phoneNumber2 != null) return false;
+        return random != null ? random.equals(contact.random) : contact.random == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
+        result = 31 * result + (phoneNumber2 != null ? phoneNumber2.hashCode() : 0);
+        result = 31 * result + contactPhoto;
+        result = 31 * result + (random != null ? random.hashCode() : 0);
+        result = 31 * result + count;
+        return result;
+    }
 }
+

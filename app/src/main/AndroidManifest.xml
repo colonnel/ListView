@@ -18,6 +18,9 @@
         <activity android:name=".activities.InfoActivity">
 
         </activity>
+        <activity android:name=".activities.AddInfoActivity">
+
+        </activity>
     </application>
 
 </manifest>
