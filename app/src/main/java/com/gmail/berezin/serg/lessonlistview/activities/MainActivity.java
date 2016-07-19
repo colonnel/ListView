@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements ContactsArrayAdap
 
     private void addPhoneNumber(int i) {
         if (mContacts.get(i).getPhoneNumbere2() == null) {
-            Button addButton = (Button) findViewById(R.id.button_add);
+//            Button addButton = (Button) findViewById(R.id.button_add);
             Intent intent = new Intent(MainActivity.this, AddInfoActivity.class);
             intent.putExtra(InfoActivity.POS_NO, mContacts.get(i));
             startActivity(intent);
@@ -88,10 +88,10 @@ public class MainActivity extends AppCompatActivity implements ContactsArrayAdap
 
     private void removePhoneNumber(int i) {
         if (mContacts.get(i).getPhoneNumbere2() != null) {
-            Button removeButton = (Button) findViewById(R.id.button_remove);
-            removeButton.setOnClickListener(this);
-            mContacts.get(i).setPhoneNumber2(null);
-            removeButton.setEnabled(false);
+//            Button removeButton = (Button) findViewById(R.id.button_remove);
+//            removeButton.setOnClickListener(this);
+//            mContacts.get(i).setPhoneNumber2(null);
+//            removeButton.setEnabled(false);
         }
     }
 }
