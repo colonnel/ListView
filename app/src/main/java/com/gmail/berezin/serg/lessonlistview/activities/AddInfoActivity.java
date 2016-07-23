@@ -1,7 +1,9 @@
 package com.gmail.berezin.serg.lessonlistview.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +17,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     private TextView vInfoText;
     private EditText vInputNumber;
     private Button vDoneButton;
+    private Contact contact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +27,21 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
         vInputNumber = (EditText) findViewById(R.id.edit_number);
         vDoneButton = (Button) findViewById(R.id.button_done);
         vDoneButton.setOnClickListener(this);
-        vInfoText.setText("Done!");
+        contact = (Contact) getIntent().getExtras().getSerializable(InfoActivity.POS_NO);
+        vInfoText.setText(contact.getName());
+
     }
 
     @Override
     public void onClick(View view) {
-        if (vInputNumber != null) {
-            Contact contact = (Contact) getIntent().getExtras().getSerializable(InfoActivity.POS_NO);
+        if (!TextUtils.isEmpty(vInputNumber.getText().toString())) {
+            Intent intent = new Intent();
             contact.setPhoneNumber2(vInputNumber.getText().toString());
+            vInfoText.setText("Done!");
+            intent.putExtra("contact", contact.getPhoneNumber2().toString());
+            setResult(RESULT_OK, intent);
+            finish();
         }
     }
+
 }

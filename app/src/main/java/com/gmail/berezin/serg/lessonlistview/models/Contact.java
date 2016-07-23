@@ -85,13 +85,15 @@ public class Contact implements Serializable {
         return phoneNumber;
     }
 
-    public String getPhoneNumbere2() {
+    public String getPhoneNumber2() {
         return phoneNumber2;
     }
 
     public int getContactPhoto() {
         return contactPhoto;
     }
+
+
 
     @Override
     public String toString() {
