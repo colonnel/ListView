@@ -1,6 +1,7 @@
 package com.gmail.berezin.serg.lessonlistview.adapters;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,7 +76,12 @@ public class ContactsArrayAdapter extends ArrayAdapter {
         ImageView photo = (ImageView) convertView.findViewById(R.id.image);
         TextView name = (TextView) convertView.findViewById(R.id.name);
         TextView phone = (TextView) convertView.findViewById(R.id.phone);
+        TextView phone2 = (TextView) convertView.findViewById(R.id.phone_2);
+        if (!TextUtils.isEmpty(contact.getPhoneNumber2())) {
+            phone2.setText(contact.getPhoneNumber2().toString());
+        }
         ImageButton buttonClose = (ImageButton) convertView.findViewById(R.id.button_close);
+//        Button buttonClose = (Button) convertView.findViewById(R.id.button_close);
         buttonClose.setOnClickListener(MyClickListener);
         buttonClose.setTag(contact);
         Button addButton = (Button) convertView.findViewById(R.id.button_add);

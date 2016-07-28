@@ -108,12 +108,8 @@ public class Contact implements Serializable {
         Contact contact = (Contact) o;
 
         if (contactPhoto != contact.contactPhoto) return false;
-        if (count != contact.count) return false;
         if (name != null ? !name.equals(contact.name) : contact.name != null) return false;
-        if (phoneNumber != null ? !phoneNumber.equals(contact.phoneNumber) : contact.phoneNumber != null)
-            return false;
-        if (phoneNumber2 != null ? !phoneNumber2.equals(contact.phoneNumber2) : contact.phoneNumber2 != null) return false;
-        return random != null ? random.equals(contact.random) : contact.random == null;
+        return phoneNumber != null ? phoneNumber.equals(contact.phoneNumber) : contact.phoneNumber == null;
 
     }
 
@@ -121,10 +117,7 @@ public class Contact implements Serializable {
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
-        result = 31 * result + (phoneNumber2 != null ? phoneNumber2.hashCode() : 0);
         result = 31 * result + contactPhoto;
-        result = 31 * result + (random != null ? random.hashCode() : 0);
-        result = 31 * result + count;
         return result;
     }
 }

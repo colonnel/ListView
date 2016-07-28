@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">LessonListView</string>
+    <string name="input_number">input number</string>
+    <string name="done">DONE</string>
+    <string name="remove">Remove</string>
+    <string name="add">Add</string>
 </resources>

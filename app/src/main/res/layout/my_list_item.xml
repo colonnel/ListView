@@ -5,9 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    card_view:cardBackgroundColor="#FAFAFA"
-    card_view:cardCornerRadius="6dp"
-    card_view:cardElevation="5dp">
+    card_view:cardBackgroundColor="@color/colorWhite"
+    card_view:cardCornerRadius="@dimen/corners_radius"
+    card_view:cardElevation="@dimen/elevation_card">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,8 +17,8 @@
 
         <ImageView
             android:id="@+id/image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/photo_size_item"
+            android:layout_height="@dimen/photo_size_item"
             android:layout_gravity="center_vertical"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
@@ -45,20 +45,30 @@
                     android:layout_margin="5dp"
                     android:focusable="false"
                     android:gravity="center_vertical"
-                    android:textColor="#000000"
+                    android:textColor="@color/colorBlack"
                     android:textSize="25sp"
                     android:textStyle="bold"
                     tools:text="Name" />
 
+                <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/button_close"-->
+                <!--android:focusable="false"-->
+                <!--android:text="delete"-->
+                <!--android:layout_gravity="right"/>-->
+
                 <ImageButton
-                    android:src="@drawable/delete"
-                    android:scaleType="centerInside"
                     android:id="@+id/button_close"
-                    android:background="@android:color/transparent"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_gravity="center_vertical"
-                    android:text="Close" />
+                    android:layout_marginLeft="@dimen/activity_vertical_margin"
+                    android:background="@android:color/transparent"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/delete" />
             </LinearLayout>
 
             <TextView
@@ -67,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:focusable="false"
-                android:textColor="#01579B"
+                android:textColor="@color/colorBlue"
                 android:textSize="15sp"
                 tools:text="Phone" />
 
@@ -77,7 +87,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:focusable="false"
-                android:textColor="#01579B"
+                android:maxLength="12"
+                android:textColor="@color/colorBlue"
                 android:textSize="15sp"
                 tools:text="Phone2" />
 
@@ -92,10 +103,10 @@
                     android:layout_height="20dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:background="#03A9F4"
+                    android:background="@color/colorAqua"
                     android:focusable="false"
-                    android:text="Add"
-                    android:textColor="#FAFAFA" />
+                    android:text="@string/add"
+                    android:textColor="@color/colorWhite" />
 
                 <Button
                     android:id="@+id/button_remove"
@@ -103,10 +114,10 @@
                     android:layout_height="20dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:background="#03A9F4"
+                    android:background="@color/colorAqua"
                     android:focusable="false"
-                    android:text="Remove"
-                    android:textColor="#FAFAFA" />
+                    android:text="@string/remove"
+                    android:textColor="@color/colorWhite" />
 
             </LinearLayout>
         </LinearLayout>
