@@ -34,6 +34,13 @@ public class ContactsArrayAdapter extends ArrayAdapter {
 
     }
 
+    static class ViewHolder {
+        protected ImageView photo;
+        protected TextView name;
+        protected TextView phone;
+        protected TextView phone2;
+        protected ImageView buttonClose;
+    }
 
     View.OnClickListener MyClickListener = new View.OnClickListener() {
         @Override
@@ -73,17 +80,17 @@ public class ContactsArrayAdapter extends ArrayAdapter {
 
         Contact contact = (Contact) getItem(position);
         convertView = inflater.inflate(R.layout.my_list_item, parent, false);
-        ImageView photo = (ImageView) convertView.findViewById(R.id.image);
-        TextView name = (TextView) convertView.findViewById(R.id.name);
-        TextView phone = (TextView) convertView.findViewById(R.id.phone);
-        TextView phone2 = (TextView) convertView.findViewById(R.id.phone_2);
+        final ViewHolder viewHolder=new ViewHolder();
+        viewHolder.photo = (ImageView) convertView.findViewById(R.id.image);
+        viewHolder.name = (TextView) convertView.findViewById(R.id.name);
+        viewHolder.phone = (TextView) convertView.findViewById(R.id.phone);
+        viewHolder.phone2 = (TextView) convertView.findViewById(R.id.phone_2);
         if (!TextUtils.isEmpty(contact.getPhoneNumber2())) {
-            phone2.setText(contact.getPhoneNumber2().toString());
+            viewHolder.phone2.setText(contact.getPhoneNumber2().toString());
         }
-        ImageButton buttonClose = (ImageButton) convertView.findViewById(R.id.button_close);
-//        Button buttonClose = (Button) convertView.findViewById(R.id.button_close);
-        buttonClose.setOnClickListener(MyClickListener);
-        buttonClose.setTag(contact);
+        viewHolder.buttonClose = (ImageView) convertView.findViewById(R.id.button_close);
+        viewHolder.buttonClose.setOnClickListener(MyClickListener);
+        viewHolder.buttonClose.setTag(contact);
         Button addButton = (Button) convertView.findViewById(R.id.button_add);
         Button removeButton = (Button) convertView.findViewById(R.id.button_remove);
         addButton.setTag(contact);
@@ -100,9 +107,9 @@ public class ContactsArrayAdapter extends ArrayAdapter {
 
         Glide.with(context)
                 .load(contact.getContactPhoto())
-                .into(photo);
-        name.setText(contact.getName());
-        phone.setText(contact.getPhoneNumber());
+                .into(viewHolder.photo);
+        viewHolder.name.setText(contact.getName());
+        viewHolder.phone.setText(contact.getPhoneNumber());
 
         return convertView;
     }
